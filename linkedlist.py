@@ -58,6 +58,9 @@ class linkedList:
             return None
         return element
 
+    #remove first node and make the second one head
+    def remfirst(self):
+        self.head=self.head.next
 
     #delete last node of a linked list
     def pop(self):
@@ -73,3 +76,25 @@ class linkedList:
             current.next=None
             self.last=current
             self.length-=1
+
+    #get max element 
+    def getMax(self):
+        if self.length<1:
+            return None
+        elif self.length==1:
+            return self.last
+        elif self.length==2:
+            return max(self.head.data, self.last.data)
+        else:
+            current=self.head
+            currentAfter = self.head.next
+            count=1
+            while count<=self.length-1:
+                if current.data >= currentAfter.data:
+                    currentAfter = currentAfter.next
+                else:
+                    current =  current.next
+                    currentAfter = currentAfter.next
+                    print(count,' your here')
+                count+=1
+            return current.data
