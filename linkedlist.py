@@ -10,7 +10,7 @@ class NODE:
 
 #Linked list class 
 class linkedList:
-    def __itit__(self):
+    def __init__(self):
         self.head=None #head of a linked List
         self.last=None #last node of a linked list
         self.length=0 #length of a linked list
@@ -20,5 +20,19 @@ class linkedList:
         element=NODE(data)
         self.last=element
         self.length +=1
+        return element
 
+    #delete last node of a linked list
+    def pop(self):
+        if self.length==0:
+            return None
+        elif self.length==1:
+            self.head=None
+            self.legth=0
+        else:
+            current=self.head
+            while current.next!=self.last:
+                current =  current.next 
+            current.next=None
+            self.last=current
 
