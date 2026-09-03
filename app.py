@@ -14,7 +14,7 @@ node3.next=node4
 node5=ll.append(500)
 node4.next=node5
 
-node6=ll.insertAfter(3,301)
+node6=ll.insertAfter(3,6661)
 node7=ll.insertAfter(node1,101)
 #ll.pop()
 #ll.prepend(200)
