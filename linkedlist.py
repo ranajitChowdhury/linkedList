@@ -15,12 +15,49 @@ class linkedList:
         self.last=None #last node of a linked list
         self.length=0 #length of a linked list
 
-    #append a node in a linked list 
+    #add a node at the end of a linked list
     def append(self,data):
         element=NODE(data)
         self.last=element
         self.length +=1
         return element
+
+    #add a node at the start of a linked list and make it head
+    def prepend(self,data):
+        element = NODE(data)
+        element.next=self.head
+        self.head=element
+        self.length+=1
+
+
+    #add a node after a specific node of a linked list
+    #it excepts the node after which we want to add a new node and the data of the new node
+    #you can pass a node object or the position of the node after which you want to add a new node
+    #NOTE:: unlike list or tuple, it begains at 1
+    def insertAfter(self,position: NODE|int,data,next=None):
+        if self.length <1:
+            return None
+        #if position is an NODE object
+        elif isinstance(position,NODE):
+            element=NODE(data)
+            element.next=position.next
+            position.next=element
+            self.length+=1
+        #if position is an index number
+        elif isinstance(position,int) and position<=self.length:
+            current=self.head
+            count=1
+            while count!=position:
+                current=current.next
+                count+=1
+            element=NODE(data)
+            element.next=current.next
+            current.next=element
+            self.length+=1
+        else:
+            return None
+        return element
+
 
     #delete last node of a linked list
     def pop(self):
@@ -35,4 +72,4 @@ class linkedList:
                 current =  current.next 
             current.next=None
             self.last=current
-
+            self.length-=1
