@@ -98,3 +98,7 @@ class linkedList:
                     print(count,' your here')
                 count+=1
             return current.data
+
+
+
+    
