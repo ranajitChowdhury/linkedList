@@ -2,23 +2,13 @@
 
 #NODE class
 #it is like an element of a list
-
 class NODE:
     def __init__(self,data):
         self.data=data #data of the node
         #self.pre=previous #previous node of the node
         self.next=None #next node of the node
 
-
-
 #Linked list class 
-'''
-it has some methods and proparties ::- 
-    properties -> head, las, length 
-    methods -> append, pop, prepend, insertAfter, rmfirst, getMax, remduplicates, read
-
-    methods need to be added ::-> sortedMax
-'''
 class linkedList:
     def __init__(self):
         self.head=None #head of a linked List
@@ -110,31 +100,5 @@ class linkedList:
             return current.data
 
 
-    #remove duplicates
-    def remduplicates(self):
-        if self.head is None:
-            print('hi')
-            return None
-        current=self.head
-        while current.next != None:
-            if current.data == current.next.data:
-                current.next=current.next.next
-                self.length-=1
-            else:
-                current=current.next
-        self.last=current
-
-    #read linked list
-    def read(self):
-        if self.head is None:
-            print(None)
-        current=self.head
-        count=1
-        while count<=self.length:
-            print(current.data,end=' ')
-            current=current.next
-            count+=1
-        print('')
-            
 
     
