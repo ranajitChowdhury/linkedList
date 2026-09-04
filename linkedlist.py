@@ -52,6 +52,8 @@ class linkedList:
             element=NODE(data)
             element.next=position.next
             position.next=element
+            if position == self.length:
+                self.last=element
             self.length+=1
         #if position is an index number
         elif isinstance(position,int) and position<=self.length:
@@ -63,6 +65,8 @@ class linkedList:
             element=NODE(data)
             element.next=current.next
             current.next=element
+            if position == self.last:
+                self.last=element
             self.length+=1
         else:
             return None
